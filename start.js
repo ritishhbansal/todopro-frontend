@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "public","home.html"));
+    res.sendFile(path.join(__dirname, "public","index.html"));
 });
 
 let user_id;
@@ -136,4 +136,5 @@ app.get("/completed/:id", async (req, res, next) => {
 const PORT = 3958;
 app.listen(PORT, () => {
     console.log(`Server running on address http://localhost:${PORT}`);
+
 });
