@@ -1,5 +1,5 @@
 exports.tasksave=async (data)=>{
-    const response=await fetch("http://localhost:3608/api/tasks",{
+    const response=await fetch("http://todopro-backend.vercel.app/api/tasks",{
         method:"post",
         headers:{
             "Content-Type":"application/json"
@@ -11,7 +11,7 @@ exports.tasksave=async (data)=>{
 }
 
 exports.fetchdata=async (id) => {
-    const response = await fetch(`http://localhost:3608/api/data/${id}`,{
+    const response = await fetch(`http://todopro-backend.vercel.app/api/data/${id}`,{
         method:"GET"
     });
 
@@ -20,7 +20,7 @@ exports.fetchdata=async (id) => {
 }
 
 exports.postlogin = async (userdata) => {
-    const response = await fetch('http://localhost:3608/api/login', {
+    const response = await fetch('http://todopro-backend.vercel.app/api/login', {
         method: "POST",
         headers: {
             "Content-Type":"application/json"
@@ -33,7 +33,7 @@ exports.postlogin = async (userdata) => {
 }
 
 exports.postsignup = async (userdata) => {
-    const response = await fetch("http://localhost:3608/api/signup", {
+    const response = await fetch("http://todopro-backend.vercel.app/api/signup", {
         method:"POST",
         headers: {
             "Content-Type":"application/json"
@@ -46,7 +46,7 @@ exports.postsignup = async (userdata) => {
 }
 
 exports.logout = async () => {
-    const response = await fetch('http://localhost:3608/api/logout', {
+    const response = await fetch('http://todopro-backend.vercel.app/api/logout', {
         method: "GET"
     })
 
@@ -55,7 +55,7 @@ exports.logout = async () => {
 }
 
 exports.taskdelete = async (id) =>{
-    const response = await fetch(`http://localhost:3608/api/taskdelete/${id}`, {
+    const response = await fetch(`http://todopro-backend.vercel.app/api/taskdelete/${id}`, {
         method:"GET"
     })
 
@@ -64,7 +64,7 @@ exports.taskdelete = async (id) =>{
 }
 
 exports.edittask = async (id) => {
-    const response = await fetch(`http://localhost:3608/api/edit/${id}`, {
+    const response = await fetch(`http://todopro-backend.vercel.app/api/edit/${id}`, {
         method:"GET"
     })
 
@@ -73,7 +73,7 @@ exports.edittask = async (id) => {
 }
 
 exports.updatetask = async (data,id) => {
-    const response = await fetch(`http://localhost:3608/api/updatetask/${id}`, {
+    const response = await fetch(`http://todopro-backend.vercel.app/api/updatetask/${id}`, {
         method: "POST", 
         headers: {
             "Content-Type":"application/json"
@@ -86,7 +86,7 @@ exports.updatetask = async (data,id) => {
 }
 
 exports.findemail = async (data) => {
-    const response = await fetch("http://localhost:3608/api/findemail", {
+    const response = await fetch("http://todopro-backend.vercel.app/api/findemail", {
         method: "POST", 
         headers: {
             "Content-Type":"application/json"
@@ -99,7 +99,7 @@ exports.findemail = async (data) => {
 }
 
 exports.updatepass = async (data, id) => {
-    const response = await fetch(`http://localhost:3608/api/updatepass/${id}`, {
+    const response = await fetch(`http://todopro-backend.vercel.app/api/updatepass/${id}`, {
         method: "POST",
         headers: {
             "Content-Type":"application/json"
@@ -112,7 +112,7 @@ exports.updatepass = async (data, id) => {
 }
 
 exports.otp = async (data) => {
-    const response = await fetch("http://localhost:3608/api/otp", {
+    const response = await fetch("http://todopro-backend.vercel.app/api/otp", {
         method: "POST",
         headers: {
             "Content-Type":"application/json"
@@ -125,7 +125,7 @@ exports.otp = async (data) => {
 }
 
 exports.complete = async (id) => {
-    const response = await fetch(`http://localhost:3608/api/complete/${id}`, {
+    const response = await fetch(`http://todopro-backend.vercel.app/api/complete/${id}`, {
         method:"GET"
     })
 
