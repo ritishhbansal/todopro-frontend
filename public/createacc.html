@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SignUp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+/* =========================
+   RESET & BASE
+   ========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* =========================
+   THEME VARIABLES
+   ========================= */
+:root{
+  --primary-purple: #667eea;
+  --secondary-purple: #764ba2;
+  --accent-yellow: #ffd369;
+  --accent-yellow-hover: #ffcb4c;
+
+  --text-main: #ffffff;
+  --text-muted: rgba(255,255,255,0.85);
+
+  --glass: rgba(255,255,255,0.15);
+  --input-bg: rgba(255,255,255,0.95);
+  --input-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+}
+
+/* =========================
+   BODY
+   ========================= */
+body{
+  background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
+  color: var(--text-main);
+  min-height: 100vh;
+  padding: 24px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================
+   NAVBAR
+   ========================= */
+nav{
+  margin-bottom: 20px;
+}
+
+nav ul{
+  display: flex;
+  gap: 18px;
+  list-style: none;
+}
+
+nav li a{
+  color: var(--accent-yellow);
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+nav li a:hover{
+  background: rgba(255,211,105,0.2);
+}
+
+/* =========================
+   TOP LAYOUT (FIX)
+   ========================= */
+.top-layout{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: flex-start;
+  gap: 48px;
+}
+
+/* =========================
+   HERO IMAGE (TOP-LEFT)
+   ========================= */
+.hero-image{
+  align-self: flex-start;
+  margin-top: 90px;
+}
+
+.hero-image img{
+  width: 320px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{ transform: translateY(0); }
+  50%{ transform: translateY(-10px); }
+}
+
+/* =========================
+   CARD (TOP-RIGHT)
+   ========================= */
+.card{
+  justify-self: end;
+  width: 100%;
+  max-width: 980px;
+  background: var(--glass);
+  backdrop-filter: blur(14px);
+  margin-top: 85px;
+  border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  overflow: hidden;
+  animation: up 420ms ease-out;
+}
+
+@keyframes up{
+  from{ opacity:0; transform: translateY(18px); }
+  to{ opacity:1; transform: translateY(0); }
+}
+
+/* =========================
+   HERO SECTION
+   ========================= */
+.hero{
+  padding: 42px 40px;
+  background: rgba(255,255,255,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+
+.logo{
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.logo span{
+  color: var(--accent-yellow);
+}
+
+.small{
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* =========================
+   FORM WRAP
+   ========================= */
+.form-wrap{
+  padding: 28px;
+  background: rgba(255,255,255,0.1);
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* =========================
+   FORM ELEMENTS
+   ========================= */
+.row{
+  display: flex;
+  gap: 12px;
+}
+
+label{
+  font-size: 13px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.input{
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: none;
+  background: var(--input-bg);
+  box-shadow: var(--input-shadow);
+  font-size: 15px;
+}
+
+.input:focus{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255,211,105,0.45);
+}
+
+/* =========================
+   TERMS
+   ========================= */
+.termsaccepted{
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.termsaccepted input{
+  accent-color: var(--accent-yellow);
+}
+
+/* =========================
+   BUTTONS
+   ========================= */
+.cta{
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.btn{
+  padding: 12px 18px;
+  border-radius: 25px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.btn-primary{
+  background: var(--accent-yellow);
+  color: #333;
+}
+
+.btn-primary:hover{
+  background: var(--accent-yellow-hover);
+}
+
+.btn-outline{
+  background: transparent;
+  border: 2px solid var(--accent-yellow);
+  color: var(--accent-yellow);
+}
+
+.btn-outline:hover{
+  background: var(--accent-yellow);
+  color: #333;
+}
+
+/* =========================
+   LINKS
+   ========================= */
+a{
+  color: var(--accent-yellow);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 900px){
+  .top-layout{
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .card{
+    grid-template-columns: 1fr;
+    justify-self: center;
+  }
+
+  .hero-image img{
+    width: 260px;
+  }
+}
+    </style>
+
+  </head>
+  <body>
+    <nav>
+        <ul>
+            <li class="home">
+                <a href="/">HOME</a>
+            </li>
+            <li>
+                <a href="/login">Login</a>
+            </li>
+        </ul>
+    </nav>
+<section class="top-layout">
+
+  <div class="hero-image">
+        <img src="to-do.png" alt="Todo Illustration">
+  </div>
+  
+    <main class="card" role="main" aria-labelledby="signup-title">
+      <section class="hero" aria-hidden="false">
+        <div class="brand">
+          <div>
+            <h1 class="logo">Todo<span>Pro</span></h1>
+          </div>
+        </div>
+
+
+        <div class="small">Already have an account? <a href="/login" style="color:var(--burnt-orange);text-decoration:none;font-weight:600">Log in</a></div>
+      </section>
+
+      <aside class="form-wrap">
+        <form action="/signup" method="POST" novalidate>
+
+          <!-- <% if (errors && errors.length > 0) { %>
+            <div class="err" role="alert">
+              <strong>Error!</strong>
+              <ul>
+                <% errors.forEach(error => { %>
+                  <li><%= error %></li>
+                <% }) %>
+              </ul>
+            </div>
+          <% } %> -->
+
+          <div class="row">
+            <div>
+              <label for="fname">First name</label>
+              <input class="input" id="fname" type="text" name="fname" placeholder="First name"  required aria-required="true" />
+            </div>
+
+            <div>
+              <label for="lname">Last name</label>
+              <input class="input" id="lname" type="text" name="lname" placeholder="Last name"/>
+            </div>
+          </div>
+
+          <div>
+            <label for="email">Email</label>
+            <input class="input" id="email" type="email" name="email" placeholder="you@example.com" required />
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="pas">Password</label>
+              <input class="input" id="pas" type="password" name="password" placeholder="Minimum 8 characters" minlength="6" required aria-required="true" />
+            </div>
+
+            <div>
+              <label for="cpas">Confirm password</label>
+              <input class="input" id="cpas" type="password" name="confirmpassword" placeholder="Confirm password" required />
+            </div>
+          </div>
+
+          <div class="termsaccepted">
+            <label><input type="checkbox" name="termsAccepted" required/> I accept the <a href="/terms" style="color:var(--burnt-orange);text-decoration:none">terms & conditions</a></label>
+          </div>
+
+          <div class="cta">
+            <input class="btn btn-primary" id="signup" type="submit" value="Create account" />
+            <a class="btn btn-outline" href="/" role="button">Cancel</a>
+          </div>
+
+          <div style="margin-top:8px" class="small">By creating an account you agree to our <a href="/privacy" style="color:var(--burnt-orange);text-decoration:none">privacy policy</a>.</div>
+
+        </form>
+      </aside>
+    </main>
+</section>
+  </body>
+</html>

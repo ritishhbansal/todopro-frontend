@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Todo App | Home</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #ffd369;
+}
+
+.nav-buttons .btn {
+  margin-left: 10px;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 80px;
+  gap: 40px;
+}
+
+.hero-text {
+  max-width: 550px;
+}
+
+.hero-text h2 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+.hero-buttons .btn {
+  margin-right: 15px;
+}
+
+.hero-image img {
+  width: 380px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* Buttons */
+.btn {
+  text-decoration: none;
+  padding: 10px 22px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn.large {
+  padding: 14px 30px;
+  font-size: 16px;
+}
+
+.btn.solid {
+  background: #ffd369;
+  color: #333;
+}
+
+.btn.solid:hover {
+  background: #ffcb4c;
+}
+
+.btn.outline {
+  border: 2px solid #ffd369;
+  color: #ffd369;
+}
+
+.btn.outline:hover {
+  background: #ffd369;
+  color: #333;
+}
+
+footer {
+  text-align: center;
+  margin-top: 80px;
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image img {
+    width: 280px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <nav class="navbar">
+      <h1 class="logo">Todo<span>Pro</span></h1>
+      <div class="nav-buttons">
+        <a href="/login" class="btn outline">Login</a>
+        <a href="/signup" class="btn solid">Create Account</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-text">
+        <h2>Organize Your Tasks.<br>Boost Your Productivity.</h2>
+        <p>
+          Manage daily tasks, track progress, and stay focused with our
+          simple and powerful Todo application.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="/login" class="btn solid large">Login</a>
+          <a href="/signup" class="btn outline large">Create Account</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img src="https://cdn-icons-png.flaticon.com/512/4345/4345644.png" alt="Todo Illustration">
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 TodoPro | Built with ❤️ by Ritish</p>
+    </footer>
+  </div>
+
+</body>
+</html>

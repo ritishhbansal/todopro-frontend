@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Task</title>
+
+<style>
+    /* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* =========================
+   THEME (HOME PAGE)
+   ========================= */
+:root {
+  --primary-purple: #667eea;
+  --secondary-purple: #764ba2;
+  --accent-yellow: #ffd369;
+  --accent-yellow-hover: #ffcb4c;
+
+  --glass: rgba(255,255,255,0.15);
+  --card: rgba(255,255,255,0.18);
+  --text-main: #ffffff;
+  --text-muted: rgba(255,255,255,0.85);
+  --border: rgba(255,255,255,0.25);
+}
+
+/* =========================
+   BASE
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
+  min-height: 100vh;
+  color: var(--text-main);
+}
+
+/* =========================
+   NAVBAR (SAME POSITION)
+   ========================= */
+nav {
+  padding: 16px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--accent-yellow);
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  background: rgba(255,211,105,0.2);
+}
+.logo span {
+  color: #ffd369;
+}
+/* =========================
+   CARD (UNCHANGED SIZE)
+   ========================= */
+.task-card {
+  max-width: 520px;
+  background: var(--card);
+  backdrop-filter: blur(14px);
+  margin: 60px auto;
+  margin-top: auto;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+/* =========================
+   HEADING
+   ========================= */
+.task-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* =========================
+   SECONDARY BUTTON
+   ========================= */
+.task-card a button {
+  width: 100%;
+  background: transparent;
+  border: 2px dashed var(--accent-yellow);
+  color: var(--accent-yellow);
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 25px;
+  transition: 0.3s;
+}
+
+.task-card a button:hover {
+  background: var(--accent-yellow);
+  color: #333;
+}
+
+/* =========================
+   FORM
+   ========================= */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text-muted);
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.95);
+  font-size: 14px;
+  transition: 0.3s;
+  color: #333;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255,211,105,0.45);
+}
+
+/* =========================
+   PRIORITY
+   ========================= */
+.priority-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 6px;
+}
+
+.priority-group input {
+  display: none;
+}
+
+.priority-group label {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: 0.3s;
+}
+
+.priority-group input:checked + label {
+  background: var(--accent-yellow);
+  color: #333;
+  border-color: var(--accent-yellow);
+}
+
+/* =========================
+   SUBMIT BUTTON
+   ========================= */
+button[type="submit"] {
+  width: 100%;
+  background: var(--accent-yellow);
+  color: #333;
+  border: none;
+  padding: 14px;
+  border-radius: 25px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+button[type="submit"]:hover {
+  background: var(--accent-yellow-hover);
+  transform: translateY(-2px);
+}
+.new {
+  color: #ffd369;
+}
+/* =========================
+   RESPONSIVE (UNCHANGED)
+   ========================= */
+@media (max-width: 600px) {
+  nav {
+    padding: 16px 20px;
+  }
+
+  .task-card {
+    margin: 30px 16px;
+    padding: 24px;
+  }
+}
+  </style>
+</head>
+
+<body>
+
+    <nav>
+      <h1 class="logo">Todo<span>Pro</span></h1>
+        <ul>
+            <li>
+                <a href="/home">Home</a>
+            </li>
+        </ul>
+    </nav>
+
+  <div class="task-card">
+    <h2>Edit Task</h2>
+
+    <form action="/updatetask/<%=task._id%>" method="post">
+
+      <div class="form-group">
+        <label for="tasktitle">Task Title</label>
+        <input type="text" id="tasktitle" value="<%=task.tasktitle%>" name="tasktitle" placeholder="<%= task.tasktitle%>" required />
+      </div>
+
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select id="category" name="category" required>
+          <option value="<%=task.category%>">Select category</option>
+          <option value="Work">Work</option>
+          <option value="Personal">Personal</option>
+          <option value="Study">Study</option>
+          <option value="Health">Health</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Priority</label>
+        <div class="priority-group">
+          <input type="radio" id="low" name="priority" value="Low" required />
+          <label for="low">Low</label>
+
+          <input type="radio" id="medium" name="priority" value="Medium" />
+          <label for="medium">Medium</label>
+
+          <input type="radio" id="high" name="priority" value="High" />
+          <label for="high">High</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="duedate">Due Date</label>
+        <input type="date" id="duedate" value="<%= task.duedate%>" name="duedate" required />
+      </div>
+      <button type="submit">Update Task</button>
+    </form>
+  </div>
+
+</body>
+</html>

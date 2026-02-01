@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forgot Password</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================
+       THEME (HOME PAGE)
+       ========================= */
+    :root {
+      --primary-purple: #667eea;
+      --secondary-purple: #764ba2;
+      --accent-yellow: #ffd369;
+      --accent-yellow-hover: #ffcb4c;
+
+      --glass: rgba(255,255,255,0.15);
+      --text-main: #ffffff;
+      --text-muted: rgba(255,255,255,0.85);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: var(--text-main);
+    }
+
+    .logo {
+  margin-left: 5px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #ffd369;
+}
+
+    /* =========================
+       CARD
+       ========================= */
+    .card {
+      width: 100%;
+      max-width: 420px;
+      background: var(--glass);
+      backdrop-filter: blur(14px);
+      border-radius: 18px;
+      padding: 32px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    /* =========================
+       FORM
+       ========================= */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    label {
+      text-align: left;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    input[type="email"] {
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      background: rgba(255,255,255,0.95);
+      color: #333;
+    }
+
+    input[type="email"]:focus {
+      box-shadow: 0 0 0 3px rgba(255,211,105,0.45);
+    }
+
+    button {
+      margin-top: 8px;
+      padding: 14px;
+      border-radius: 25px;
+      border: none;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      background: var(--accent-yellow);
+      color: #333;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: var(--accent-yellow-hover);
+      transform: translateY(-2px);
+    }
+
+    .back {
+      margin-top: 18px;
+      font-size: 14px;
+    }
+
+    .back a {
+      color: var(--accent-yellow);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .back a:hover {
+      text-decoration: underline;
+    }
+
+    /* =========================
+       RESPONSIVE
+       ========================= */
+    @media (max-width: 480px) {
+      .card {
+        padding: 24px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <div class="logo">Todo<span>Pro</span></div>
+
+    <h2>Forgot Password?</h2>
+    <p>
+      Enter your registered email address.<br>
+      We’ll send you a link to reset your password.
+    </p>
+
+    <form action="/email" method="POST">
+      <label for="email">Email address</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="you@example.com"
+        required
+      />
+
+      <button type="submit">Send Reset Link</button>
+    </form>
+
+    <div class="back">
+      Remembered your password?
+      <a href="/login">Back to Login</a>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Tasks</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* =========================
+   THEME (HOME PAGE)
+   ========================= */
+:root {
+  --primary-purple: #667eea;
+  --secondary-purple: #764ba2;
+  --accent-yellow: #ffd369;
+  --accent-yellow-hover: #ffcb4c;
+
+  --danger: #ef4444;
+  --success: #22c55e;
+  --warning: #f59e0b;
+
+  --glass: rgba(255,255,255,0.15);
+  --card: rgba(255,255,255,0.18);
+  --text-main: #ffffff;
+  --text-muted: rgba(255,255,255,0.8);
+  --border: rgba(255,255,255,0.25);
+}
+
+/* =========================
+   BASE
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
+  color: var(--text-main);
+}
+
+/* =========================
+   HEADING
+   ========================= */
+h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+/* =========================
+   HOME BUTTON
+   ========================= */
+#home {
+  text-decoration: none;
+}
+
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 auto 26px;
+  padding: 12px 26px;
+  border-radius: 25px;
+  background: var(--accent-yellow);
+  color: #333;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.home-btn:hover {
+  background: var(--accent-yellow-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* =========================
+   TABLE CARD
+   ========================= */
+.table-wrapper {
+  max-width: 1100px;
+  margin: auto;
+  background: var(--card);
+  backdrop-filter: blur(14px);
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+  overflow-x: auto;
+}
+
+/* =========================
+   TABLE
+   ========================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: rgba(255,255,255,0.08);
+}
+
+th {
+  text-align: left;
+  padding: 14px;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 700;
+  border-bottom: 1px solid var(--border);
+}
+
+td {
+  padding: 14px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Hover row */
+tr {
+  transition: 0.25s ease;
+}
+
+tbody tr:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* =========================
+   PRIORITY BADGES
+   ========================= */
+.badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.badge.low {
+  background: rgba(34,197,94,0.2);
+  color: var(--success);
+}
+
+.badge.medium {
+  background: rgba(245,158,11,0.2);
+  color: var(--warning);
+}
+
+.badge.high {
+  background: rgba(239,68,68,0.2);
+  color: var(--danger);
+}
+
+/* =========================
+   ACTION BUTTONS
+   ========================= */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.actions a button {
+  padding: 7px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+/* Edit */
+.actions .edit {
+  background: var(--accent-yellow);
+  color: #333;
+}
+
+.actions .edit:hover {
+  background: var(--accent-yellow-hover);
+  transform: translateY(-1px);
+}
+
+/* Delete */
+.actions .delete {
+  background: var(--danger);
+  color: #fff;
+}
+
+.actions .delete:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.actions .completed {
+  background: #22c55e;
+  color: #fff;
+}
+
+.actions .completed:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   MOBILE (CARD STYLE LIST)
+   ========================= */
+@media (max-width: 700px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    background: rgba(255,255,255,0.16);
+    backdrop-filter: blur(12px);
+    margin-bottom: 18px;
+    border-radius: 16px;
+    padding: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  }
+
+  td {
+    border: none;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+
+  .actions {
+    justify-content: flex-end;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+  <h2>📋 All Tasks</h2>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Task Title</th>
+          <th>Category</th>
+          <th>Priority</th>
+          <th>Due Date</th>
+          <th>Config</th>
+        </tr>
+      </thead>
+
+      <body>
+
+      <a href="/home" id="home">
+        <button class="home-btn">🏠 Home</button>
+      </a>
+
+        <% item.forEach((item) => { %>
+          <tr>
+            <td data-label="Task"> <%= item.tasktitle %> </td>
+            <td data-label="Category"> <%= item.category %> </td>
+            <td data-label="Priority">
+              <span class="badge <%= item.priority.toLowerCase() %>">
+                <%= item.priority %>
+              </span>
+            </td>
+            <td data-label="Due Date"> <%= item.duedate %> </td>
+            <td data-label="Actions">
+              <div class="actions">
+                <a href="/edit/<%=item._id%>">
+                  <button class="edit">Edit</button>
+                </a>
+                <a href="/delete/<%=item._id%>">
+                  <button class="delete">Delete</button>
+                </a>
+                <a href="/completed/<%=item._id%>">
+                  <button class="completed">Completed</button>
+                </a>
+              </div>
+            </td>
+          </tr>
+
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>
