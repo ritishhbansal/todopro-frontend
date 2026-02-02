@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Todo App | Home</title>
+  <title>Toodo App | Home</title>
   <style>
     * {
   margin: 0;
@@ -24,14 +24,17 @@ body {
   padding: 20px;
 }
 
+/* ===== NAVBAR ===== */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .logo {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: bold;
 }
 
@@ -39,15 +42,17 @@ body {
   color: #ffd369;
 }
 
-.nav-buttons .btn {
-  margin-left: 10px;
+.nav-buttons {
+  display: flex;
+  gap: 10px;
 }
 
+/* ===== HERO ===== */
 .hero {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 80px;
+  margin-top: 70px;
   gap: 40px;
 }
 
@@ -56,38 +61,45 @@ body {
 }
 
 .hero-text h2 {
-  font-size: 42px;
+  font-size: 40px;
   margin-bottom: 20px;
+  line-height: 1.2;
 }
 
 .hero-text p {
-  font-size: 18px;
+  font-size: 17px;
   opacity: 0.9;
   margin-bottom: 30px;
 }
 
-.hero-buttons .btn {
-  margin-right: 15px;
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 .hero-image img {
-  width: 380px;
+  width: 360px;
+  max-width: 100%;
   animation: float 3s ease-in-out infinite;
 }
 
+/* ===== ANIMATION ===== */
 @keyframes float {
   0% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
   100% { transform: translateY(0); }
 }
 
-/* Buttons */
+/* ===== BUTTONS ===== */
 .btn {
   text-decoration: none;
   padding: 10px 22px;
   border-radius: 25px;
   font-weight: 600;
   transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
 }
 
 .btn.large {
@@ -114,31 +126,65 @@ body {
   color: #333;
 }
 
+/* ===== FOOTER ===== */
 footer {
   text-align: center;
   margin-top: 80px;
   opacity: 0.8;
+  font-size: 14px;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .hero {
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .navbar {
     flex-direction: column;
     text-align: center;
   }
 
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .hero-text h2 {
+    font-size: 30px;
+  }
+
+  .hero-text p {
+    font-size: 15px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
   .hero-image img {
-    width: 280px;
+    width: 260px;
   }
 }
 
-  </style>
+/* ===== SMALL MOBILE ===== */
+@media (max-width: 420px) {
+  .logo {
+    font-size: 22px;
+  }
+
+  .btn.large {
+    width: 100%;
+  }
+
+  .hero-text h2 {
+    font-size: 26px;
+  }
+}
+ </style>
 </head>
 <body>
 
   <div class="container">
     <nav class="navbar">
-      <h1 class="logo">Todo<span>Pro</span></h1>
+      <h1 class="logo">Toodo<span>Pro</span></h1>
       <div class="nav-buttons">
         <a href="/login" class="btn outline">Login</a>
         <a href="/signup" class="btn solid">Create Account</a>
@@ -165,9 +211,10 @@ footer {
     </section>
 
     <footer>
-      <p>© 2026 TodoPro | Built with ❤️ by Ritish</p>
+      <p>© 2026 ToodoPro | Built with ❤️ by Ritish</p>
     </footer>
   </div>
 
 </body>
 </html>
+
