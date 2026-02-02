@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>All Tasks</title>
-  <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 /* =========================
    THEME (HOME PAGE)
@@ -49,10 +48,9 @@ body {
    ========================= */
 h2 {
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
   font-size: 28px;
   font-weight: 700;
-  letter-spacing: 0.3px;
 }
 
 /* =========================
@@ -110,12 +108,12 @@ thead {
 }
 
 th {
-  text-align: left;
   padding: 14px;
   font-size: 13px;
   color: var(--text-muted);
   font-weight: 700;
   border-bottom: 1px solid var(--border);
+  text-align: left;
 }
 
 td {
@@ -124,8 +122,7 @@ td {
   border-bottom: 1px solid var(--border);
 }
 
-/* Hover row */
-tr {
+tbody tr {
   transition: 0.25s ease;
 }
 
@@ -142,7 +139,6 @@ tbody tr:hover {
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.4px;
 }
 
 .badge.low {
@@ -166,9 +162,10 @@ tbody tr:hover {
 .actions {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
-.actions a button {
+.actions button {
   padding: 7px 16px;
   border-radius: 20px;
   font-size: 13px;
@@ -184,36 +181,36 @@ tbody tr:hover {
   color: #333;
 }
 
-.actions .edit:hover {
-  background: var(--accent-yellow-hover);
-  transform: translateY(-1px);
-}
-
 /* Delete */
 .actions .delete {
   background: var(--danger);
   color: #fff;
 }
 
-.actions .delete:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
-
+/* Completed */
 .actions .completed {
-  background: #22c55e;
+  background: var(--success);
   color: #fff;
 }
 
-.actions .completed:hover {
-  opacity: 0.9;
+.actions button:hover {
   transform: translateY(-1px);
+  opacity: 0.9;
 }
 
 /* =========================
-   MOBILE (CARD STYLE LIST)
+   MOBILE (CARD LIST VIEW)
    ========================= */
 @media (max-width: 700px) {
+
+  body {
+    padding: 24px 14px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
   table, thead, tbody, th, td, tr {
     display: block;
   }
@@ -222,20 +219,21 @@ tbody tr:hover {
     display: none;
   }
 
-  tr {
-    background: rgba(255,255,255,0.16);
+  tbody tr {
+    background: rgba(255,255,255,0.18);
     backdrop-filter: blur(12px);
     margin-bottom: 18px;
     border-radius: 16px;
-    padding: 14px;
+    padding: 16px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.25);
   }
 
   td {
     border: none;
-    padding: 10px 0;
+    padding: 8px 0;
     display: flex;
     justify-content: space-between;
+    gap: 12px;
     font-size: 14px;
   }
 
@@ -247,10 +245,19 @@ tbody tr:hover {
 
   .actions {
     justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .actions button {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+
+  .table-wrapper {
+    padding: 18px;
   }
 }
-
-  </style>
+</style>
 </head>
 
 <body>
@@ -306,4 +313,5 @@ tbody tr:hover {
   </div>
 
 </body>
+
 </html>
