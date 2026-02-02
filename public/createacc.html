@@ -9,9 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
-/* =========================
-   RESET & BASE
-   ========================= */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -22,9 +19,6 @@ html, body {
   height: 100%;
 }
 
-/* =========================
-   THEME VARIABLES
-   ========================= */
 :root{
   --primary-purple: #667eea;
   --secondary-purple: #764ba2;
@@ -41,9 +35,6 @@ html, body {
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
 }
 
-/* =========================
-   BODY
-   ========================= */
 body{
   background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
   color: var(--text-main);
@@ -52,9 +43,6 @@ body{
   -webkit-font-smoothing: antialiased;
 }
 
-/* =========================
-   NAVBAR
-   ========================= */
 nav{
   margin-bottom: 20px;
 }
@@ -77,9 +65,6 @@ nav li a:hover{
   background: rgba(255,211,105,0.2);
 }
 
-/* =========================
-   TOP LAYOUT (FIX)
-   ========================= */
 .top-layout{
   display: grid;
   grid-template-columns: auto 1fr;
@@ -87,9 +72,6 @@ nav li a:hover{
   gap: 48px;
 }
 
-/* =========================
-   HERO IMAGE (TOP-LEFT)
-   ========================= */
 .hero-image{
   align-self: flex-start;
   margin-top: 90px;
@@ -105,9 +87,6 @@ nav li a:hover{
   50%{ transform: translateY(-10px); }
 }
 
-/* =========================
-   CARD (TOP-RIGHT)
-   ========================= */
 .card{
   justify-self: end;
   width: 100%;
@@ -128,9 +107,6 @@ nav li a:hover{
   to{ opacity:1; transform: translateY(0); }
 }
 
-/* =========================
-   HERO SECTION
-   ========================= */
 .hero{
   padding: 42px 40px;
   background: rgba(255,255,255,0.06);
@@ -154,9 +130,6 @@ nav li a:hover{
   color: var(--text-muted);
 }
 
-/* =========================
-   FORM WRAP
-   ========================= */
 .form-wrap{
   padding: 28px;
   background: rgba(255,255,255,0.1);
@@ -262,7 +235,7 @@ a:hover{
 }
 
 /* =========================
-   RESPONSIVE
+   TABLET
    ========================= */
 @media (max-width: 900px){
   .top-layout{
@@ -277,6 +250,66 @@ a:hover{
 
   .hero-image img{
     width: 260px;
+  }
+}
+
+/* =========================
+   MOBILE (FORM ONLY)
+   ========================= */
+@media (max-width: 600px){
+
+  body{
+    padding: 14px;
+  }
+
+  /* Hide image & branding */
+  .hero-image,
+  .hero{
+    display: none;
+  }
+
+  /* Layout fix */
+  .top-layout{
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  /* Card full width */
+  .card{
+    margin-top: 20px;
+    max-width: 100%;
+    border-radius: 16px;
+  }
+
+  /* Form adjustments */
+  .form-wrap{
+    padding: 22px 18px;
+  }
+
+  .row{
+    flex-direction: column;
+  }
+
+  .input{
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  /* Buttons stack */
+  .cta{
+    flex-direction: column;
+  }
+
+  .btn{
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  /* Navbar center */
+  nav ul{
+    justify-content: center;
+    flex-wrap: wrap;
   }
 }
     </style>
@@ -303,12 +336,12 @@ a:hover{
       <section class="hero" aria-hidden="false">
         <div class="brand">
           <div>
-            <h1 class="logo">Todo<span>Pro</span></h1>
+            <h1 class="logo">Toodo<span>Pro</span></h1>
           </div>
         </div>
 
 
-        <div class="small">Already have an account? <a href="/login" style="color:var(--burnt-orange);text-decoration:none;font-weight:600">Log in</a></div>
+        <div class="small">Already have an account? <a href="/login" style="color:#ffd369;text-decoration:none;font-weight:600">Log in</a></div>
       </section>
 
       <aside class="form-wrap">
@@ -370,4 +403,5 @@ a:hover{
     </main>
 </section>
   </body>
+
 </html>
